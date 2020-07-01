@@ -17,16 +17,14 @@
     align-items: center;
     padding: 0 $freeSpace 0 $freeSpace;
 
-    // .logo {
-    //   background-image: url('../img/logo.png');
-    //   background-repeat: no-repeat;
-    //   background-size: contain;
-    //   background-position: center;
-    //   // background-color: lightcoral;
-    //   width: 120px;
-    //   height: $headerHeight - 3;
-    //   margin-top: 3px;
-    // }
+    .logo {
+      color: $whiteColor;
+      text-decoration: none;
+
+      h3 {
+        margin: 0px;
+      }
+    }
 
     .menu {
       display: flex;
@@ -36,6 +34,7 @@
 
       li {
         a {
+          text-decoration: none;
           color: $whiteColor;
         }
       }
