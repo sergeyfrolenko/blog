@@ -12,7 +12,7 @@ html
           ul.menu
             li
               a(href = 'ind.html') index
-    div.wrapper
+    div.main
       div.container
         div.content
           div.article
@@ -26,6 +26,13 @@ html
               label(for = 'login') login 
               br
               input(type = 'text' id = 'login')
+              br
+              label(for = 'pass') password 
+              br
+              input(type = 'text' id = 'pass')
+              div.box
+                button(type = 'submit') Log in
+                button(type = 'submit') Sign up
     div.footer
       div.container
         h3 Sergey Frolenko &copy;2020

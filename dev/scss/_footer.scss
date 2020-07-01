@@ -8,5 +8,9 @@
   .container {
     height: 100%;
     line-height: $footerHeight;
+
+    h3 {
+      margin-top: $freeSpace;
+    }
   }
 }

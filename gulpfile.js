@@ -5,10 +5,12 @@ const cssnano = require("gulp-cssnano");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglifyjs");
 const prettier = require("gulp-prettier");
+const plumber = require("gulp-plumber");
 // const browserSync = require('browser-sync');
 gulp.task("sass", function (done) {
   gulp
     .src("dev/scss/*.scss")
+    .pipe(plumber())
     .pipe(sass())
     .pipe(cssnano())
     .pipe(gulp.dest("dest/css"));
