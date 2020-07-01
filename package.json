@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "gulp & cross-env PORT=3000 nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,13 +19,23 @@
   "homepage": "https://github.com/sergeyfrolenko/blog#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cross-env": "^7.0.2",
     "ejs": "^3.1.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "mongoose": "^5.9.20"
   },
   "devDependencies": {
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-node": "^11.1.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-prettier": "^3.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglifyjs": "^0.6.2",
     "nodemon": "^2.0.4"
   },
   "engines": {
