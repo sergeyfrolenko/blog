@@ -23,8 +23,10 @@ gulp.task("js", function (done) {
   done();
 });
 gulp.task("pug", (done) => {
-  gulp.src("dev/pug/*.pug").pipe(pug())
-    .pipe(prettier())
+  gulp
+    .src("dev/pug/*.pug")
+    .pipe(pug())
+    // .pipe(prettier())
     .pipe(gulp.dest("dest"));
   done();
 });

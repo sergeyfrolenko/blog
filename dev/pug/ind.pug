@@ -14,7 +14,17 @@ html
     div.wrapper
       div.container
         div.content
+          div.article
+            div.arcticle-title
+              h3 The name of article
+            div.article-content
+              p different words that describes my opinion
         div.sidebar
+          div.auth
+            form(method = 'POST' action = '/auth')
+              label(for = 'login') login 
+              br
+              input(type = 'text' id = 'login')
     div.footer
       div.container
         h3 Sergey Frolenko &copy;2020
