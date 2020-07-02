@@ -3,6 +3,11 @@
   display: flex;
 }
 
+@media (max-width: 991px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+}
 /* Portrait tablets and medium desktops */
 @media (min-width: 992px) {
   .container {
@@ -23,3 +28,4 @@
     width: 100%;
   }
 }
+
