@@ -1,3 +1,39 @@
 <%- include('layout/head') %>
-  <h1> Hello World </h1>
+    <div class="main">
+      <div class="container">
+        <div class="content">
+          <div class="article">
+            <div class="arcticle-title"><h3>The name of article</h3></div>
+            <div class="article-content">
+              <p>different words that describes my opinion</p>
+            </div>
+            <div class="article-meta">
+              <p class="meta-author">Author: SF</p>
+              <p class="meta-date">02.07.2020</p>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar">
+          <div class="auth">
+            <form method="POST" action="/auth">
+              <label for="login">login </label><br /><input
+                type="text"
+                id="login"
+              /><br /><label for="pass">password </label><br /><input
+                type="text"
+                id="pass"
+              />
+              <div class="box">
+                <button type="submit">Log in</button
+                ><button type="submit">Sign up</button>
+              </div>
+            </form>
+          </div>
+          <div class="adverb">
+            <h5>title adverb</h5>
+            <p>text of adverb for selling many goods</p>
+          </div>
+        </div>
+      </div>
+    </div>
 <%- include('layout/footer') %>

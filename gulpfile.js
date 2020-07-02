@@ -13,7 +13,7 @@ gulp.task("sass", function (done) {
     .pipe(plumber())
     .pipe(sass())
     .pipe(cssnano())
-    .pipe(gulp.dest("dest/css"));
+    .pipe(gulp.dest("public/stylesheets"));
   done();
 });
 gulp.task("js", function (done) {
@@ -28,7 +28,7 @@ gulp.task("pug", (done) => {
   gulp
     .src("dev/pug/*.pug")
     .pipe(pug())
-    // .pipe(prettier())
+    .pipe(prettier())
     .pipe(gulp.dest("dest"));
   done();
 });
