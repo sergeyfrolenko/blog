@@ -11,6 +11,13 @@
       padding: $freeSpace;
       min-height: 100px;
       border: 1px solid $greyColor;
+
+      .article {
+        .article-meta {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
     }
 
     .sidebar {
