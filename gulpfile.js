@@ -21,7 +21,7 @@ gulp.task("js", function (done) {
     .src(["dev/js/*.js"])
     .pipe(concat("script.js"))
     .pipe(uglify())
-    .pipe(gulp.dest("dest/js"));
+    .pipe(gulp.dest("public/javascripts"));
   done();
 });
 gulp.task("pug", (done) => {

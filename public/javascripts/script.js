@@ -1,1 +1,1 @@
-$('h3').append("!");
+$(function(){var n=!0;$(".switch-button").on("click",function(i){i.preventDefault(),n?(n=!1,$(".auth-signin").show("slow"),$(".auth-login").hide()):(n=!0,$(".auth-login").show("slow"),$(".auth-signin").hide())})});
