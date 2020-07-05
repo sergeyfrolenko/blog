@@ -20,7 +20,7 @@ gulp.task("js", function (done) {
   gulp
     .src(["dev/js/*.js"])
     .pipe(concat("script.js"))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest("public/javascripts"));
   done();
 });

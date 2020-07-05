@@ -50,6 +50,12 @@
             padding: $freeSpace/3;
           }
         } // box
+        .error {
+          color: red;
+        }
+        .success {
+          color: green;
+        }
       } //auth
       .auth-signin {
         display: none;
