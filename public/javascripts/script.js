@@ -34,6 +34,7 @@ $('.reg-btn').on('click', e=>{
       url: '/api/auth/register'
     }).done(function(data) {
       if (!data.ok) {
+        $('p.error').remove();
         $('.auth-signin h2').after('<p class="error">' + data.error + '</p>');
         if (data.fields) {
           data.fields.forEach(function(item) {
