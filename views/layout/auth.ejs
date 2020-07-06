@@ -1,15 +1,18 @@
+        <% if(!user.id && !user.login) { %>
           <div class="auth auth-login">
             <h2>Log In</h2>
             <form method="POST" action="/auth">
               <label for="login">login </label><br /><input
                 type="text"
                 id="login"
+                name='login'
               /><br /><label for="pass">password </label><br /><input
                 type="text"
                 id="pass"
+                name='password'
               />
               <div class="box">
-                <button type="submit">Log in</button
+                <button type="submit" class='login-btn'>Log in</button
                 ><button type="submit" class="switch-button">Sign up</button>
               </div>
             </form>
@@ -40,3 +43,8 @@
               </div>
             </form>
           </div>
+          <% } else { %>
+        <p>
+        hello, <%= user.login %>! <a href="/api/auth/logout">Log out</a>
+      </p>
+        <% } %>
