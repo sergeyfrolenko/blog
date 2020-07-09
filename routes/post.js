@@ -5,33 +5,43 @@ const TurndownService = require('turndown');
 const models = require('../models');
 
 router.get('/add', (req, res) => {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
 
-  res.render('post/add', {
-    user: {
-      id,
-      login
-    }
-  });
+  if (!userId || !userLogin) {
+    res.redirect('/');
+  } else {
+    res.render('post/add', {
+      user: {
+        id: userId,
+        login: userLogin
+      }
+    });
+  }
 });
 
 router.post('/add', (req, res) => {
-  const title = req.body.title.trim().replace(/ +(?= )/g, '');
-  const body = req.body.body;
-  const turndownService = new TurndownService();
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
 
-  if (!title || !body) {
-    const fields = [];
-    if (!title) fields.push('title');
-    if (!body) fields.push('body');
+  if (!userId || !userLogin) {
+    res.redirect('/');
+  } else {
+    const title = req.body.title.trim().replace(/ +(?= )/g, '');
+    const body = req.body.body;
+    const turndownService = new TurndownService();
 
-    res.json({
-      ok: false,
-      error: 'Все поля должны быть заполнены!',
-      fields
-    });
-  } else if (title.length < 3 || title.length > 64) {
+    if (!title || !body) {
+      const fields = [];
+      if (!title) fields.push('title');
+      if (!body) fields.push('body');
+
+      res.json({
+        ok: false,
+        error: 'Все поля должны быть заполнены!',
+        fields
+      });
+    } else if (title.length < 3 || title.length > 64) {
     res.json({
       ok: false,
       error: 'Длина заголовка от 3 до 64 символов!',
@@ -46,7 +56,8 @@ router.post('/add', (req, res) => {
   } else {
     models.Post.create({
       title,
-      body: turndownService.turndown(body)
+      body: turndownService.turndown(body),
+      owner: userId
     })
       .then(post => {
         console.log(post);
@@ -60,7 +71,7 @@ router.post('/add', (req, res) => {
           ok: false
         });
       });
-  }
+  }}
 });
 
 module.exports = router;
