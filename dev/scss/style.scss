@@ -10,6 +10,8 @@ $footerHeight: 49px;
 @import 'reset';
 @import 'grid';
 @import 'typography';
+@import '../../node_modules/medium-editor/dist/css/medium-editor';
+@import '../../node_modules/medium-editor/dist/css/themes/default';
 
 html {
   display: flex;
@@ -22,10 +24,13 @@ body {
   flex-direction: column;
   flex: auto;
   color: $blackColor;
-  background-color: $whiteColor;
+  background-color: $blackColor;
   padding-top: $headerHeight + $freeSpace;
 }
+
+h1 {color:red;}
 
 @import 'header';
 @import 'main';
 @import 'footer';
+@import 'components/post'

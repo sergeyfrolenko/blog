@@ -9,16 +9,20 @@ const plumber = require("gulp-plumber");
 // const browserSync = require('browser-sync');
 gulp.task("sass", function (done) {
   gulp
-    .src("dev/scss/*.scss")
+    .src("dev/scss/*/*.scss")
     .pipe(plumber())
     .pipe(sass())
-    .pipe(cssnano())
+    // .pipe(cssnano())
     .pipe(gulp.dest("public/stylesheets"));
   done();
 });
 gulp.task("js", function (done) {
   gulp
-    .src(["dev/js/*.js"])
+    .src([
+      "dev/js/*.js",
+      'dev/js/post.js',
+      'node_modules/medium-editor/dist/js/medium-editor.min.js'
+    ])
     .pipe(concat("script.js"))
     // .pipe(uglify())
     .pipe(gulp.dest("public/javascripts"));
@@ -32,7 +36,7 @@ gulp.task("pug", (done) => {
     .pipe(gulp.dest("dest"));
   done();
 });
-gulp.watch("dev/scss/*.scss", gulp.series("sass"));
+gulp.watch("dev/scss/*/*.scss", gulp.series("sass"));
 gulp.watch("dev/js/*.js", gulp.series("js"));
 gulp.watch("dev/pug/*.pug", gulp.series("pug"));
 gulp.task("default", gulp.series("sass", "js", "pug"));
