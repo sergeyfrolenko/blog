@@ -2,17 +2,41 @@
     <div class="main">
       <div class="container">
         <div class="content">
-          <div class="article">
-            <div class="arcticle-title"><h3>The name of article</h3></div>
-            <div class="article-content">
-              <p>different words that describes my opinion</p>
+         <% for (var i = 0; i < posts.length; i++) { %>
+          <div class="post">
+            <div class="top">
+              <h2>
+                <%=posts[i].title %>
+              </h2>
             </div>
-            <div class="article-meta">
-              <p class="meta-author">Author: SF</p>
-              <p class="meta-date">02.07.2020</p>
+            <div class="body">
+              <p><%=posts[i].body %></p>
+            </div>
+            <div class="bottom">
+              <div class="author">
+                Автор:
+                <a href="/">Гедеван</a>
+              </div>
+              <a href="/">Комментарии</a>
             </div>
           </div>
-        </div>
+          <% } %>
+
+            <div class="pagination">
+              <% if (current > 2) { %>
+                <a class="new" href="/archive/<%= Number(current) - 1 %>">← К новым</a>
+                <% } %>
+                  <% if (current == 2) { %>
+                    <a class="new" href="/">← На главную</a>
+                    <% } %>
+                      <% if (pages > 0 && current < pages) { %>
+                        <a class="old" href="/archive/<%= Number(current) + 1 %>">К старым →</a>
+                        <% } %>
+
+            </div>
+
+
+      </div>
         <div class="sidebar">
           <%- include('layout/auth') %>
           <div class="adverb">
