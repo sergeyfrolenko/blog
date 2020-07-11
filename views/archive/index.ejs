@@ -1,8 +1,9 @@
-<%- include('layout/head') %>
-    <div class="main">
-      <div class="container">
-        <div class="content">
-         <% for (var i = 0; i < posts.length; i++) { %>
+<%- include('../layout/head') %>
+
+  <div class="main">
+    <div class="container">
+      <div class="content">
+        <% for (var i = 0; i < posts.length; i++) { %>
           <div class="post">
             <div class="top">
               <h2>
@@ -17,7 +18,9 @@
             <div class="bottom">
               <div class="author">
                 Автор:
-                <a href="/">Гедеван</a>
+                <a href="/users/<%=posts[i].owner.login %>">
+                  <%=posts[i].owner.login %>
+                </a>
               </div>
               <a href="/">Комментарии</a>
             </div>
@@ -39,13 +42,10 @@
 
 
       </div>
-        <div class="sidebar">
-          <%- include('layout/auth') %>
-          <div class="adverb">
-            <h5>title adverb</h5>
-            <p>text of adverb for selling many goods</p>
-          </div>
-        </div>
-      </div>
+
+          <%- include('../layout/auth') %>
+
     </div>
-<%- include('layout/footer') %>
+  </div>
+
+<%- include('../layout/footer') %>
