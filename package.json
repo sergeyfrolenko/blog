@@ -27,6 +27,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "faker": "^4.1.0",
+    "gulp-nodemon": "^2.5.0",
     "jquery": "^3.5.1",
     "medium-editor": "^5.23.3",
     "mongoose": "^5.9.20",
@@ -50,6 +51,6 @@
     "nodemon": "^2.0.4"
   },
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=12.10.0"
   }
 }

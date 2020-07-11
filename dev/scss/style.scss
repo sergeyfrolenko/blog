@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   flex: auto;
   color: $blackColor;
@@ -28,7 +28,6 @@ body {
   padding-top: $headerHeight + $freeSpace;
 }
 
-h1 {color:red;}
 
 @import 'header';
 @import 'main';
