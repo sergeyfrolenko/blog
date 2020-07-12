@@ -41,7 +41,6 @@ router.get('/posts/:post', async (req, res, next) => {
   const url = req.params.post.trim().replace(/ +(?= )/g, '');
   const userId = req.session.userId;
   const userLogin = req.session.userLogin;
-  console.log(url);
 
   if (!url) {
     const err = new Error('Not Found');
@@ -60,7 +59,6 @@ router.get('/posts/:post', async (req, res, next) => {
         const author = await models.User.findOne({
           _id: post.owner
         });
-        console.log(author.login);
         res.render('post/post', {
           post,
           author: author.login,
