@@ -49,17 +49,21 @@ router.get('/posts/:post', async (req, res, next) => {
     next(err);
   } else {
     try {
-      const post = models.Post.findOne({
+      const post = await models.Post.findOne({
         url
       });
-
       if (!post) {
         const err = new Error('Not Found');
         err.status = 404;
         next(err);
       } else {
+        const author = await models.User.findOne({
+          _id: post.owner
+        });
+        console.log(author.login);
         res.render('post/post', {
           post,
+          author: author.login,
           user: {
             id: userId,
             login: userLogin

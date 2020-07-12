@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-$(function() {
+$(function () {
   // eslint-disable-next-line
   var editor = new MediumEditor('#post-body', {
     placeholder: {
@@ -9,7 +9,7 @@ $(function() {
   });
 
   // publish
-  $('.publish-button').on('click', function(e) {
+  $('.publish-button').on('click', function (e) {
     e.preventDefault();
 
     var data = {
@@ -22,12 +22,12 @@ $(function() {
       data: JSON.stringify(data),
       contentType: 'application/json',
       url: '/post/add'
-    }).done(function(data) {
+    }).done(function (data) {
       console.log(data);
       if (!data.ok) {
         $('.post-form h2').after('<p class="error">' + data.error + '</p>');
         if (data.fields) {
-          data.fields.forEach(function(item) {
+          data.fields.forEach(function (item) {
             $('#post-' + item).addClass('error');
           });
         }
