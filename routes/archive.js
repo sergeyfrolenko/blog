@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const moment = require('moment');
+moment.locale('en');
 
 const config = require('../config');
 const models = require('../models');
@@ -19,9 +21,14 @@ async function posts(req, res) {
 
     const count = await models.Post.countDocuments();
 
+    const commentsCount = await models.Comment.find({
+
+    });
+
     res.render('index', {
       posts,
       current: page,
+      commentsCount: 3,
       pages: Math.ceil(count / perPage),
       user: {
         id: userId,
@@ -59,8 +66,14 @@ router.get('/posts/:post', async (req, res, next) => {
         const author = await models.User.findOne({
           _id: post.owner
         });
+        const comments = await models.Comment.find({
+          post: post.id,
+          parent: { $exists: false }
+        });
         res.render('post/post', {
           post,
+          comments,
+          moment,
           author: author.login,
           user: {
             id: userId,

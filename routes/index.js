@@ -1,11 +1,11 @@
 const auth = require('./auth');
 const post = require('./post');
 const archive = require('./archive');
-const comment = require('./comment');
+const comments = require('./comments');
 
 module.exports = {
   auth,
   post,
   archive,
-  comment
+  comments
 };

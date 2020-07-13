@@ -22,7 +22,7 @@ mongoose.connection
   });
 
 
-mongoose.connect(config.MONGO_URL, { 
+mongoose.connect(config.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -57,6 +57,7 @@ app.use(
 app.use('/api/auth', routes.auth);
 app.use('/post', routes.post);
 app.use('/', routes.archive);
+app.use('/comments', routes.comments);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

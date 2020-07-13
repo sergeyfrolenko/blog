@@ -8,14 +8,14 @@ router.post('/add', async (req, res) => {
   const userId = req.session.userId;
   const userLogin = req.session.userLogin;
 
-  console.log(req.body);
+  console.log(req.body)
 
   if (!userId || !userLogin) {
     res.json({
       ok: false
     });
   } else {
-    const post = req.body.post;
+    const post = req.body.author;
     const body = req.body.body;
     const parent = req.body.parent;
 
@@ -45,6 +45,9 @@ router.post('/add', async (req, res) => {
         children.push(comment.id);
         parentComment.children = children;
         await parentComment.save();
+        res.json({
+          ok: true
+        });
       }
     } catch (error) {
       res.json({

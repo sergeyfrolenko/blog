@@ -35,7 +35,7 @@ $(function () {
     // removeErrors();
 
     var data = {
-      post: $('.comments').attr('id'),
+      author: $('.comments').attr('id'),
       body: commentForm.find('textarea').val(),
       parent: parentId
     };
@@ -44,16 +44,11 @@ $(function () {
       type: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',
-      url: '/comment/add'
+      url: '/comments/add'
     }).done(function (data) {
       console.log(data);
-      if (!data.ok) {
-        $('.post-form h2').after('<p class="error">' + data.error + '</p>');
-        if (data.fields) {
-          data.fields.forEach(function (item) {
-            $('#post-' + item).addClass('error');
-          });
-        }
+      if (data.ok) {
+        location.reload();
       } else {
         // $('.register h2').after('<p class="success">Отлично!</p>');
         $(location).attr('href', '/');
